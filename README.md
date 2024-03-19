@@ -1,7 +1,7 @@
 # License Plate Pipeline (Detection, Recognition, Verification)
 ## These tasks solved with this repo
 - Detection: I trained Yolov8 on Iranian License Plates on this [dataset](https://app.roboflow.com/sajjad-aemmi/persian-license-plate-detection)
-- Recognizer: I used and trained [Deep Text Recognition Benchmark](https://github.com/clovaai/deep-text-recognition-benchmark.git) on Iranian License Plates on this [dataset](https://github.com/mut-deep/IR-LPR)
+- Recognition: I used and trained [Deep Text Recognition Benchmark](https://github.com/clovaai/deep-text-recognition-benchmark.git) on Iranian License Plates on this [dataset](https://github.com/mut-deep/IR-LPR)
 - Verification: License plate verification is implemented to know which license plate is stored in the database. I used sqlite3 for database
 
 ## How to install
