@@ -1,0 +1,3 @@
+.idea
+weights/yolov8-detector/*.pt
+weights/dtrb-recognizer/*.pth
