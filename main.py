@@ -2,9 +2,9 @@ import argparse
 
 import cv2 as cv
 from ultralytics import YOLO
-from ultralytics.engine.results import Results, Boxes
 
 from deep_text_recognition_benchmark.dtrb import DTRB
+from main import *
 
 
 parser = argparse.ArgumentParser()
@@ -63,12 +63,12 @@ plate_detector = YOLO(opt.detector_weight)
 plate_recognizer = DTRB(opt.recognizer_weight, opt)
 
 image = cv.imread(opt.input_img)
-results: Results = plate_detector.predict(image)
+results = plate_detector.predict(image)
 
 classes = ['License Plate']
 
 for result in results:
-    boxes: Boxes = result.boxes
+    boxes = result.boxes
     for i, box in enumerate(boxes):
         conf = int(box.conf[0] * 100) / 100
         if conf > opt.threshold:

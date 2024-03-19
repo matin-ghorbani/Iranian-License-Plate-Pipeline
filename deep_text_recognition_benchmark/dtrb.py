@@ -10,6 +10,7 @@ from deep_text_recognition_benchmark.utils import CTCLabelConverter, AttnLabelCo
 from deep_text_recognition_benchmark.dataset import RawDataset, AlignCollate
 from deep_text_recognition_benchmark.model import Model
 
+from dtrb import *
 
 class DTRB:
     def __init__(self, weights_path, opt):
@@ -47,7 +48,7 @@ class DTRB:
         self.model.load_state_dict(torch.load(
             weights_path, map_location=self.device))
 
-    def predict(self, image) -> list[str, float]:
+    def predict(self, image):
         transform = transforms.Compose([
             transforms.ToTensor(),
         ])
@@ -55,7 +56,7 @@ class DTRB:
         # predict
         self.model.eval()
         with torch.no_grad():
-            image_tensor: torch.Tensor = transform(image)
+            image_tensor = transform(image)
             image_tensor = image_tensor.sub_(0.5).div_(0.5)
             image_tensor = torch.unsqueeze(
                 image_tensor, 0)
@@ -88,7 +89,7 @@ class DTRB:
             print(f'{dashed_line}\n{head}\n{dashed_line}')
 
             preds_prob = F.softmax(preds, dim=2)
-            preds_max_prob, _ = preds_prob.max(dim=2)
+            preds_max_prob = preds_prob.max(dim=2)[0]
             for img_name, pred, pred_max_prob in zip(["besco"], preds_str, preds_max_prob):
                 if 'Attn' in self.opt.Prediction:
                     pred_EOS = pred.find('[s]')
