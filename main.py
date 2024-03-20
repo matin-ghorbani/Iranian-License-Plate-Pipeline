@@ -49,7 +49,7 @@ parser.add_argument('--detector-weight', type=str,
 parser.add_argument('--recognizer-weight', type=str,
                     default='weights/dtrb-recognizer/dtrb-None-VGG-BiLSTM-CTC-license-plate-recognizer.pth', help='Path of recognizer weight')
 parser.add_argument('--input-img', type=str,
-                    default='io/input/test.jpg', help='Path of image to test')
+                    default='io/input/Iranian license plate.jpg', help='Path of image to test')
 parser.add_argument('--threshold', type=float, default=.7,
                     help='Threshold of testing')
 parser.add_argument('--show-output', type=bool,

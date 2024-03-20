@@ -10,7 +10,7 @@ from deep_text_recognition_benchmark.utils import CTCLabelConverter, AttnLabelCo
 from deep_text_recognition_benchmark.dataset import RawDataset, AlignCollate
 from deep_text_recognition_benchmark.model import Model
 
-from dtrb import *
+from .dtrb import *
 
 class DTRB:
     def __init__(self, weights_path, opt):
